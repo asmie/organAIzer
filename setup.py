@@ -17,5 +17,8 @@ setup(
     author_email='asmie@asmie.pl',
     url='https://github.com/asmie/organAIzer',
     license=license,
+    entry_points={
+        'console_scripts': ['oai=organAIzer.cli:cli'],
+    },
     packages=find_packages(exclude=('tests', 'docs'))
 )
