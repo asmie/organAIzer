@@ -8,6 +8,9 @@ with open('README.md') as f:
 with open('LICENSE') as f:
     license = f.read()
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 setup(
     name='organAIzer',
     version='0.1.0',
@@ -20,5 +23,6 @@ setup(
     entry_points={
         'console_scripts': ['oai=organAIzer.cli:cli'],
     },
-    packages=find_packages(exclude=('tests', 'docs'))
+    packages=find_packages(exclude=('tests', 'docs')),
+    install_requires=required
 )

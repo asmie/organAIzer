@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "organAIzer"
+version = "0.0.1"
+requires-python = ">=3.9"
+authors = [
+  {name = "Piotr Olszewski", email = "asmie@asmie.pl"},
+]
+maintainers = [
+  {name = "Piotr Olszewski", email = "asmie@asmie.pl"},
+]
+description = "Personal AI organizer"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["AI", "organizer", "personal", "assistant"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.9"
+]
+dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+optional-dependencies = {dev = { file = ["requirements-dev.txt"] }}
