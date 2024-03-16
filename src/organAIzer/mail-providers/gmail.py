@@ -1,3 +1,5 @@
+"""Module providing Google Mail service."""
+
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -6,6 +8,8 @@ import os
 
 
 def get_messages():
+    """Function fetching mails from GMail."""
+
     # Set up the scopes and credentials
     SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
     creds = None
@@ -25,7 +29,7 @@ def get_messages():
                 'credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open('token.json', 'w') as token:
+        with open('token.json', 'w', encoding="utf-8") as token:
             token.write(creds.to_json())
 
     # Call the Gmail API

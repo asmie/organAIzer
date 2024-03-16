@@ -1,3 +1,5 @@
+"""Module providing O365 calendar connectivity."""
+
 from O365 import Account
 
 CLIENT_ID = "xxx"

@@ -1,3 +1,5 @@
+"""Module with CLI component."""
+
 import argparse
 from gmail import get_messages
 from gcalendar import get_cal_events

@@ -1,3 +1,5 @@
+"""Module providing Google calendar connectivity."""
+
 import datetime
 import os.path
 
@@ -12,6 +14,7 @@ SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 
 
 def get_cal_events():
+    """Function getting Google calendar events."""
     creds = None
     if os.path.exists("token.json"):
         creds = Credentials.from_authorized_user_file("token.json", SCOPES)
@@ -23,7 +26,7 @@ def get_cal_events():
                 "credentials.json", SCOPES
             )
             creds = flow.run_local_server(port=0)
-        with open("token.json", "w") as token:
+        with open("token.json", "w", encoding="utf-8") as token:
             token.write(creds.to_json())
     try:
         service = build("calendar", "v3", credentials=creds)

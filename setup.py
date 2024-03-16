@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
+"""Module providing setup facility."""
 
 from setuptools import setup, find_packages
 
-with open('README.md') as f:
+with open('README.md', encoding="utf-8") as f:
     readme = f.read()
 
-with open('LICENSE') as f:
-    license = f.read()
+with open('LICENSE', encoding="utf-8") as f:
+    license_text = f.read()
 
-with open('requirements.txt') as f:
+with open('requirements.txt', encoding="utf-8") as f:
     required = f.read().splitlines()
 
 setup(
@@ -19,7 +20,7 @@ setup(
     author='Piotr Olszewski',
     author_email='asmie@asmie.pl',
     url='https://github.com/asmie/organAIzer',
-    license=license,
+    license=license_text,
     entry_points={
         'console_scripts': ['oai=organAIzer.cli:cli'],
     },

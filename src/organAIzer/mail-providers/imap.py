@@ -1,3 +1,5 @@
+"""Module providing IMAP connectivity."""
+
 import imaplib
 import email
 from email.header import decode_header
@@ -14,7 +16,7 @@ imap_server = "outlook.office365.com"
 
 
 def clean(text):
-    # clean text for creating a folder
+    """Clean text for creating a folder."""
     return "".join(c if c.isalnum() else "_" for c in text)
 
 # number of top emails to fetch
@@ -75,7 +77,7 @@ for i in range(messages, messages-N, -1):
                                 os.mkdir(folder_name)
                             filepath = os.path.join(folder_name, filename)
                             # download attachment and save it
-                            open(filepath, "wb").write(part.get_payload(decode=True))
+                            open(filepath, "wb", encoding="utf-8").write(part.get_payload(decode=True))
             else:
                 # extract content type of email
                 content_type = msg.get_content_type()
